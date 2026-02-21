@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: logserver
+
+server:
+  port: ${SERVER_PORT}
+
+logserver:
+  endpoint-path: ${LOG_ENDPOINT_PATH}
+  elasticsearch:
+    url: ${ELASTICSEARCH_URL}
+  index-name: ${LOG_INDEX_NAME}
+  kibana-url: ${KIBANA_URL}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: when-authorized
+
+logging:
+  level:
+    root: INFO
+    com.example.elasticsearch: INFO
