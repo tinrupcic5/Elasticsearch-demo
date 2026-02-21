@@ -2,12 +2,6 @@
 
 A centralized log server that receives logs from other applications, stores them in Elasticsearch, and allows querying via a REST API. The application has no built-in web UI; use Kibana (Docker) to view logs in Elasticsearch.
 
-## Requirements
-
-- Java 
-- Maven
-- Docker and Docker Compose (for Elasticsearch and Kibana)
-
 ## Configuration (env)
 
 All URLs and endpoints are provided only via environment variables; there are no hardcoded values in config files. You must use a `.env` file.
@@ -54,21 +48,6 @@ This starts:
 Wait about one minute for the services to be ready.
 
 ### 2. Elasticsearch Demo application
-
-**With dev profile** (localhost; still requires `.env` with values):
-
-```bash
-mvn spring-boot:run -Dspring-boot.run.profiles=dev
-```
-
-**Without profile** (uses `.env`): load env, then run:
-
-```bash
-export $(grep -v '^#' .env | xargs)
-mvn spring-boot:run
-```
-
-Or run `ELoggerApplication` from your IDE (Env file = `.env` or Active profiles = `dev`).
 
 After startup, the Kibana URL is printed in the log (e.g. `http://localhost:5601`).
 
